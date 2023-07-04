@@ -1,0 +1,12 @@
+.navbar {
+  background: rgba(255, 255, 255, 1);
+  // backdrop-filter: saturate(180%) blur(20px);
+
+  .nav-item {
+    list-style: none;
+  }
+}
+
+.menu-icon {
+  pointer-events: none;
+}

@@ -1,0 +1,224 @@
+<div class="main">
+  <div class="row">
+    <div class="row-width">
+      <div class="header">
+        <h3>Concept EXP</h3>
+      </div>
+
+      <div class="row">
+        <div class="control-box">
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Seach Concept"
+              name="search"
+              id=""
+            />
+            <button type="button">Submit</button>
+          </div>
+          <!-- {{ conceptData | json }} -->
+          <div class="all-concepts">
+            <ul>
+              <li
+                *ngFor="let video of conceptData"
+                (mouseover)="loadImage(video)"
+              >
+                <div class="name">{{ video.Name }}</div>
+                <div class="actualName">{{ video.ActualName }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="concept-details">
+          <p>Concept Details</p>
+          <div class="">
+            <h3>Actual Name: {{ modelDetails?.ActualName }}</h3>
+            <p>DoB: {{ modelDetails?.DOB | date }}</p>
+            <p>Email: {{ modelDetails?.Email }}</p>
+            <p>Phone: {{ modelDetails?.Phone }}</p>
+            <p>Followers: {{ modelDetails?.Followers }}</p>
+            <p>Address: {{ modelDetails?.Address }}</p>
+            <p>Country: {{ modelDetails?.County }}</p>
+            <p>Bio: {{ modelDetails?.Bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preview">
+      <div class="concept-name">{{ modelDetails?.Name ?? "-" }}</div>
+
+      <div class="image-holder">
+        <img [src]="featuredImages.preview" alt="loading...." width="100%" />
+      </div>
+
+      <div class="img-prev">
+        <div class="img-hold">
+          <img
+            [src]="featuredImages?.thumb[0]"
+            alt="loading...."
+            width="100%"
+          />
+        </div>
+        <div class="img-hold">
+          <img
+            [src]="featuredImages?.thumb[1]"
+            alt="loading...."
+            width="100%"
+          />
+        </div>
+        <div class="img-hold">
+          <img
+            [src]="featuredImages?.thumb[2]"
+            alt="loading...."
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <app-dynamic-form></app-dynamic-form> -->
+</div>
+
+
+.main {
+  position: fixed;
+  height: 99vh;
+  width: calc(100% - 4px);
+  border-style: dashed;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+.header {
+  color: black;
+  margin: 0.2rem;
+  margin-top: 0;
+  line-height: normal;
+  padding: 0.2rem 1rem;
+
+  h3 {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.row-width {
+  width: 75%;
+}
+
+.row {
+  display: flex;
+  margin: 0.2rem;
+  overflow: auto;
+
+  .control-box,
+  .concept-details,
+  .preview {
+    border: 1px solid black;
+    flex: 1;
+    color: black;
+    height: 100%;
+    // border-radius: 6px;
+    padding: 0.1rem 0.3rem;
+    margin-right: 0.1rem;
+    &:last-child {
+      margin-right: 0;
+      height: 90vh;
+    }
+    p {
+      margin: 0;
+      color: black;
+      font-size: 0.7rem;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      border-bottom: 1px solid black;
+    }
+  }
+  .control-box {
+    width: 30% !important;
+    flex: unset !important;
+  }
+  .preview {
+    height: 95.5vh !important;
+    .concept-name {
+      color: black;
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+    .image-holder {
+      border: 1px solid black;
+      margin-top: 0.3rem;
+      height: 70vh;
+      overflow: hidden;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .img-prev {
+    display: flex;
+    .img-hold {
+      flex: 1;
+      height: 120px;
+      overflow: hidden;
+      border: 1px solid black;
+      margin-right: 0.3rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .search-box {
+    margin-top: 0.15rem;
+    // border: 1px solid black;
+    background-color: transparent;
+    display: flex;
+
+    input {
+      flex: 1;
+    }
+  }
+
+  .all-concepts {
+    overflow: auto;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    border: 1px solid black;
+    max-height: 87vh;
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      background-color: rgb(0, 0, 0);
+      li {
+        padding: 0.3rem 0.5rem;
+        color: black;
+        border: 1px dashed transparent;
+        font-size: 0.8rem;
+        cursor: pointer;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+          color: black;
+          background-color: #000;
+          border: 1px dashed black;
+        }
+      }
+    }
+  }
+}

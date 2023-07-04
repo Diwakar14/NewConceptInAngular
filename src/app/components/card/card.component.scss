@@ -1,0 +1,118 @@
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border: none !important;
+  border-radius: 13px;
+  min-height: 320px;
+  transition: all cubic-bezier(0.19, 0.01, 0.17, 1.06) 0.2s;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  perspective: 500px;
+  &-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  &:hover img {
+    transform: scale(1);
+    filter: grayscale(0) saturate(1.1);
+    transition: all cubic-bezier(0.19, 0.01, 0.17, 1.06) 0.8s;
+  }
+  &:hover .controls {
+    opacity: 1;
+    transition: all cubic-bezier(0.19, 0.01, 0.17, 1.06) 0.8s;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1) saturate(1);
+    transform: scale(0.5) translateZ(10px) rotateZ(0) rotateX(45deg);
+    perspective-origin: center;
+    perspective: 100px;
+    transform-style: preserve-3d;
+    transition: all cubic-bezier(0.19, 0.01, 0.17, 1.06) 2s;
+  }
+
+  .card-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    // color: var(--bs-gray-800);
+  }
+
+  .controls {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 45px);
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    button {
+      width: 35px;
+      height: 35px;
+      outline: none;
+      border: none;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 99px;
+      &:active {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  &-body {
+    bottom: -75px;
+    width: 100%;
+    position: absolute;
+    transition: all ease 0.2s;
+    color: white;
+
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      180deg,
+      rgba(2, 0, 36, 0) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    // -webkit-backdrop-filter: saturate(180%) blur(20px);
+    // backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+.card:hover {
+  box-shadow: 0px 2px 8px rgb(0 0 0 / 20%);
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+.card:hover .card-body {
+  bottom: 0;
+  transition: all ease 0.2s;
+}
+
+.tint {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(0, 0, 0, 0.34) 100%
+  );
+}

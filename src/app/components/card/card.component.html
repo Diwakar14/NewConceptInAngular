@@ -1,0 +1,33 @@
+<div class="card" #intersectContainer>
+  <div class="position-relative" style="perspective: 500px">
+    <div class="loader m-auto" [hidden]="isImageLoaded">
+      <img src="../../../assets/img/loader.svg" style="width: 30px" alt="" />
+    </div>
+
+    <img
+      [attr.data-imagesrc]="data.Links.at(activeIndex)"
+      width="120"
+      height="320"
+      class="card-img-top"
+      alt="loading..."
+      #imageEl
+      loading="lazy"
+    />
+
+    <div class="tint" [hidden]="!isImageLoaded"></div>
+  </div>
+  <div class="controls">
+    <button (click)="prev()">
+      <i class="bi bi-arrow-left-circle-fill"></i>
+    </button>
+    <button (click)="next()">
+      <i class="bi bi-arrow-right-circle-fill"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ data.Name }}</h5>
+    <p class="card-text">
+      {{ data.Category }}
+    </p>
+  </div>
+</div>

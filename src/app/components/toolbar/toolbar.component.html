@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container-fluid">
+    <div class="d-flex ms-auto">
+      <li
+        class="nav-item position-relative"
+        *ngFor="let menu of menus; index as i"
+      >
+        <button class="btn" (click)="setActiveMenu(i)">
+          <i class="menu-icon bi bi-{{ menu.icon }}"></i>
+        </button>
+
+        <app-portal
+          [component]="menu.component"
+          [state]="menu.isActive"
+        ></app-portal>
+      </li>
+    </div>
+  </div>
+</nav>

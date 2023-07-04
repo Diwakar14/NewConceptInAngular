@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: auto;
+  .outlet {
+    height: 100vh;
+    overflow: auto;
+    flex: 1;
+  }
+}

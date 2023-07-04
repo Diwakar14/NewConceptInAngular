@@ -1,0 +1,17 @@
+<div class="home p-3">
+  <ul class="nav nav-pills rounded p-2 mb-3 shadow-sm">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Filter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Sort by</a>
+    </li>
+  </ul>
+  <div class="grid">
+    <ng-template ngFor [ngForOf]="allModels" let-model>
+      <div class="grid-card" *ngIf="model.Links.at(0)">
+        <app-card [data]="model"></app-card>
+      </div>
+    </ng-template>
+  </div>
+</div>
